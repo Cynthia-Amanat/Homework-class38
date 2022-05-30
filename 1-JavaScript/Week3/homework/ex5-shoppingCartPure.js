@@ -16,25 +16,13 @@ it pure. Do the following:
 5. Confirm that you function passes the provided unit tests.
 ------------------------------------------------------------------------------*/
 // ! Function under test
-
-// (array, item)
-// return newShopping Cart , 
-
 const shoppingCart = ['bananas', 'milk', ];
 function addToShoppingCart(initialArray,item) {
-
   if( initialArray.length === 3 && typeof item === 'string'){
     initialArray.shift()
   }
-
-  initialArray.push(item)
-
-   const newCart = [item, ...initialArray]
-  
-
+  initialArray = [item, ...initialArray]
   return initialArray
-  
-
 }
 
 

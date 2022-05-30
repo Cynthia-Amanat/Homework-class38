@@ -28,19 +28,12 @@ const cartForParty = {
   chips: 0.99
 };
 
-
 function calculateTotalPrice(cartForParty) {
-
-
   let sum = 0;
-
   for (const key in cartForParty) {
     sum += cartForParty[key];
   }
-  
   return `Total: €${sum}`
-  
-
 }
 
 

@@ -48,9 +48,7 @@ function main() {
   const numKids = [1, 2, 3, 4,5];
 
   const partnerNames = ["Arsalan", 'John', "Jan", 'Jorth', "Johny"];
-
   const locations = ['England', 'America', 'Island', 'Turkey', 'Austrlia'];
-
   const jobTitles = ['Web developer', 'Doctor', 'Teacher', 'Makeup Artist', 'Painter'];
 
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));

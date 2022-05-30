@@ -20,9 +20,6 @@ function calculateDogAge(fictional,number) {
     
   const age = fictional * number;
   return [`Your doggie is ${age} years old in dog years!`];
-
-    
-
 }
 console.log(calculateDogAge(1,7));
 console.log(calculateDogAge(8,7));

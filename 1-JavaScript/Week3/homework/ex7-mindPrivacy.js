@@ -36,14 +36,8 @@ for(let employee of employeeData){
   const {name,occupation,email} = employee
   newArray.push({name,occupation,email})
 }
-
 return newArray
-
-
 }
-
-
-
 
 // // ! Test functions (plain vanilla JavaScript)
 function test1() {

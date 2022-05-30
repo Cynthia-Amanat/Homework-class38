@@ -33,11 +33,8 @@ function addToShoppingCart(item) {
     if (shoppingCart.length > 2){
       shoppingCart.shift()
     }
-
     shoppingCart.push(item)
-
   }
-
     return `You bought ${shoppingCart.join(', ')}!`
 
 }
