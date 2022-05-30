@@ -1,0 +1,44 @@
+{
+  "node": "v18.1.0",
+  "system": {
+    "manufacturer": "HP",
+    "model": "HP Pavilion x360 Convertible 15-br0xx"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-7200U",
+    "speed": 2.5
+  },
+  "memory": "12 GB",
+  "osInfo": {
+    "platform": "Windows",
+    "distro": "Microsoft Windows 10 Home",
+    "release": "10.0.19043"
+  },
+  "vscodeInfo": {
+    "version": "1.67.2",
+    "extensions": [
+      "christian-kohler.npm-intellisense",
+      "christian-kohler.path-intellisense",
+      "dbaeumer.vscode-eslint",
+      "eg2.vscode-npm-script",
+      "esbenp.prettier-vscode",
+      "jasonnutter.search-node-modules",
+      "kisstkondoros.vscode-codemetrics",
+      "leizongmin.node-module-intellisense",
+      "ms-azuretools.vscode-azurefunctions",
+      "ms-azuretools.vscode-azureresourcegroups",
+      "ms-vscode.azure-account",
+      "ms-vsliveshare.vsliveshare",
+      "ms-vsliveshare.vsliveshare-audio",
+      "msjsdiag.debugger-for-chrome",
+      "nodesource.vscode-for-node-js-development-pack",
+      "prodam.nodejs-extension-pack",
+      "ritwickdey.LiveServer",
+      "Shan.code-settings-sync",
+      "wix.vscode-import-cost",
+      "xabikos.JavaScriptSnippets"
+    ],
+    "userSettings": {}
+  }
+}

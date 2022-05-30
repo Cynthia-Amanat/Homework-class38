@@ -25,17 +25,15 @@ const cartForParty = {
   cookies: 15.4,
   cake: 45,
   cola: 5.5,
-  chips: 0.99
+  chips: 0.99,
 };
 
 function calculateTotalPrice(cartForParty) {
-  let sum = 0;
-  for (const key in cartForParty) {
-    sum += cartForParty[key];
-  }
-  return `Total: €${sum}`
-}
+  const { beer, cookies, cake, cola, chips } = cartForParty;
+  const sum = beer + cookies + cake + cola + chips;
 
+  return `Total: €${sum}`;
+}
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
@@ -45,9 +43,9 @@ function test1() {
 
 function test2() {
   console.log('\nTest 2: return correct output when passed cartForParty');
-  const expected =`Total: €71.89`
-  const actual = calculateTotalPrice(cartForParty)
-  console.assert(expected === actual)
+  const expected = `Total: €71.89`;
+  const actual = calculateTotalPrice(cartForParty);
+  console.assert(expected === actual);
   // TODO replace this comment with your code
 }
 function test() {
@@ -56,11 +54,3 @@ function test() {
 }
 
 test();
-
-
-
-
-
-
-
-

@@ -6,8 +6,6 @@ Let's do some grocery shopping! We're going to get some things to cook dinner
 with. However, you like to spend money and always buy too many things. So when 
 you have more than 3 items in your shopping cart the first item gets taken out.
 
-// 
-
 1. Create an array called `shoppingCart` that holds the following strings: 
    "bananas" and "milk".
 
@@ -26,17 +24,13 @@ const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
 function addToShoppingCart(item) {
-  // paramater = 1 type string done
-
-  if(item && typeof item === "string"){
-
-    if (shoppingCart.length > 2){
-      shoppingCart.shift()
+  if (item && typeof item === 'string') {
+    if (shoppingCart.length > 2) {
+      shoppingCart.shift();
     }
-    shoppingCart.push(item)
+    shoppingCart.push(item);
   }
-    return `You bought ${shoppingCart.join(', ')}!`
-
+  return `You bought ${shoppingCart.join(', ')}!`;
 }
 
 //! Test functions (plain vanilla JavaScript)
@@ -46,7 +40,7 @@ function test1() {
   );
   const expected = 'You bought bananas, milk!';
   const actual = addToShoppingCart();
-  console.log(actual)
+  console.log(actual);
   console.assert(actual === expected);
 }
 

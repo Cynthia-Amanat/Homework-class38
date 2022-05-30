@@ -1,0 +1,7 @@
+
+*** Spell Checker Report ***
+
+ex3-tellFortune.js:53:26 - Unknown word (Arsalan)
+ex3-tellFortune.js:53:37 - Unknown word (Jhon)
+ex3-tellFortune.js:53:53 - Unknown word (Jorh)
+ex3-tellFortune.js:53:61 - Unknown word (Jhony)

@@ -26,18 +26,18 @@ const employeeRecords = [
     gender: 'F',
     email: 'jane.eyre@somewhere.net',
     salary: 60000,
-  }
+  },
 ];
 
 // ! Function under test
 const filterPrivateData = (employeeData) => {
-  const newArray =[];
-for(let employee of employeeData){
-  const {name,occupation,email} = employee
-  newArray.push({name,occupation,email})
-}
-return newArray
-}
+  const newArray = [];
+  for (const employee of employeeData) {
+    const { name, occupation, email } = employee;
+    newArray.push({ name, occupation, email });
+  }
+  return newArray;
+};
 
 // // ! Test functions (plain vanilla JavaScript)
 function test1() {
