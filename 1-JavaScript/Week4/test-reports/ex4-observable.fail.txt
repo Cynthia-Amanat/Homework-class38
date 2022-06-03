@@ -1,0 +1,13 @@
+
+*** ESLint Report ***
+
+ex4-observable/ex4-observable.js
+  17:9   error    'subscribers' is assigned a value but never used  no-unused-vars
+  20:26  error    'func' is defined but never used                  no-unused-vars
+  21:7   warning  Remove commented-out code                         hyf/no-commented-out-code
+  24:23  error    'message' is defined but never used               no-unused-vars
+  25:7   warning  Remove commented-out code                         hyf/no-commented-out-code
+  27:7   warning  Remove commented-out code                         hyf/no-commented-out-code
+
+✖ 6 problems (3 errors, 3 warnings)
+

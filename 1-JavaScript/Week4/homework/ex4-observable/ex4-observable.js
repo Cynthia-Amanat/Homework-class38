@@ -15,15 +15,25 @@ Complete the `createObservable()` function as follows:
 
 function createObservable() {
   const subscribers = [];
+
   return {
-    subscribe: function (subscriber) {
-      // TODO complete this function
+    subscribe: function (func) {
+      subscribers.push(func)
+    
     },
     notify: function (message) {
-      // TODO complete this function
+      subscribers.forEach(subscriber => {
+
+        return `${message} ${subscriber}`
+      })
     },
+
+
   };
-}
+ 
+}  
+
 
 // ! Do not change or remove the code below
 module.exports = createObservable;
+

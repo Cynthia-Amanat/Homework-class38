@@ -46,8 +46,7 @@ describe('sanitizeFruitBasket', () => {
 
   test('should not modify the original `fruitBasket` array', () => {
     // Save the original contents of the fruit basket
-    const originalFruitBasketContents = [...fruitBasket];
-   
+    const originalFruitBasketContents = [...fruitBasket]
     sanitizeFruitBasket(originalFruitBasketContents, 'lemon')
     expect(originalFruitBasketContents).toEqual(fruitBasket);
   });
