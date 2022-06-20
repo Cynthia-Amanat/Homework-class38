@@ -24,10 +24,13 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 
 const catImage = document.querySelector('img');
 const width = Math.ceil(window.innerWidth / 10) * 10;
-const halfWidth = width / 2;
+const halfWidth = Math.ceil(window.innerWidth / 20) * 10;
 let count = 0;
 function catWalk() {
   // TODO complete this function
+
+  console.log(width);
+  console.log(halfWidth);
   const interval = setInterval(() => {
     catImage.style.left = count + 'px';
     count = count + 10;
@@ -45,7 +48,7 @@ function catWalk() {
         catWalk();
       }, 5000);
     }
-  });
+  }, 50);
 }
 
 // TODO execute `catWalk` when the browser has completed loading the page
