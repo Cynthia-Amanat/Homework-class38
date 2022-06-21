@@ -9,8 +9,10 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 ------------------------------------------------------------------------------*/
 function addCurrentTime() {
   const currentTime = document.getElementById('time');
-  currentTime.textContent = new Date();
+  setInterval(() => {
+    currentTime.textContent = new Date();
+  }, 100);
 }
-window.addEventListener('load', setInterval(addCurrentTime, 1000));
 
 // TODO execute `addCurrentTime` when the browser has completed loading the page
+window.addEventListener('load', addCurrentTime);

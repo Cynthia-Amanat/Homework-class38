@@ -11,9 +11,9 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 
 // TODO add your JavaScript code here.
 
-document.getElementById('nickname').innerText = 'Cynthu';
-document.getElementById('fav-food').innerText = 'Pizza';
-document.getElementById('hometown').innerText = 'Quetta';
+document.getElementById('nickname').textContent = 'Cynthu';
+document.getElementById('fav-food').textContent = 'Pizza';
+document.getElementById('hometown').textContent = 'Quetta';
 
 const addLiClass = document.getElementsByTagName('li');
 
