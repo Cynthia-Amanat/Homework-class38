@@ -1,0 +1,62 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest ex4-pokerDiceAll.test.js --colors
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+ FAIL  3-UsingAPIs/Week1/unit-tests/ex4-pokerDiceAll.test.js
+  ex4-pokerDiceAll
+    √ should exist and be executable (1 ms)
+    √ should have all TODO comments removed (1 ms)
+    √ `rollDice` should not contain unneeded console.log calls (1 ms)
+    √ should use `dice.map()`
+    √ should use `Promise.all()` (1 ms)
+    × should resolve when all dice settle successfully (7 ms)
+    √ should reject with an Error when a die rolls off the table (93 ms)
+
+  ● ex4-pokerDiceAll › should resolve when all dice settle successfully
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      54 |     expect(promise).toBeInstanceOf(Promise);
+      55 |     const result = await promise;
+    > 56 |     expect(Array.isArray(result)).toBe(true);
+         |                                   ^
+      57 |     expect(result).toHaveLength(5);
+      58 |
+      59 |     promise.finally(() => {
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex4-pokerDiceAll.test.js:56:35)
+
+  ● ex4-pokerDiceAll › should resolve when all dice settle successfully
+
+    expect.assertions(4)
+
+    Expected four assertions to be called but received three assertion calls.
+
+      46 |
+      47 |   test('should resolve when all dice settle successfully', async () => {
+    > 48 |     expect.assertions(4);
+         |            ^
+      49 |     expect(exported).toBeDefined();
+      50 |
+      51 |     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex4-pokerDiceAll.test.js:48:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 6 passed, 7 total
+Snapshots:   0 total
+Time:        0.779 s, estimated 1 s
+Ran all test suites matching /ex4-pokerDiceAll.test.js/i.
+*** ESLint Report ***
+
+ex4-pokerDiceAll.js
+  6:3   error  Unreachable code        no-unreachable
+  6:32  error  'value' is not defined  no-undef
+
+✖ 2 problems (2 errors, 0 warnings)
+

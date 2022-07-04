@@ -1,0 +1,7 @@
+
+*** Spell Checker Report ***
+
+ex1-johnWho.js:3:22 - Unknown word (firstname)
+ex1-johnWho.js:6:27 - Unknown word (firstname)
+ex1-johnWho.js:8:12 - Unknown word (firstname)
+ex1-johnWho.js:18:29 - Unknown word (firstname)
