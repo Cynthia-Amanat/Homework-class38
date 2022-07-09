@@ -1,11 +1,11 @@
 'use strict';
 
-const getAnonName = (firstname) => {
+const getAnonName = (firstName) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const fullName = `${firstname} Doe`;
+      const fullName = `${firstName} Doe`;
 
-      if (!firstname) {
+      if (!firstName) {
         reject(new Error("You didn't pass in a first name!"));
       } else {
         resolve(fullName);
@@ -15,7 +15,7 @@ const getAnonName = (firstname) => {
 };
 
 function main() {
-  getAnonName('John').then((firstname) => console.log(firstname));
+  getAnonName('John').then((fullName) => console.log(fullName));
 }
 
 if (process.env.NODE_ENV !== 'test') {
