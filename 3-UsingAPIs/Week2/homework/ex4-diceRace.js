@@ -1,3 +1,4 @@
+/* eslint-disable hyf/no-commented-out-code */
 'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-UsingAPIs/Week2/README.md#exercise-4-dice-race
@@ -15,18 +16,24 @@ const rollDie = require('../../helpers/pokerDiceRoller');
 
 function rollDice() {
   const dice = [1, 2, 3, 4, 5];
-  // TODO complete this function; use Promise.race() and rollDie()
+  const raceDice = dice.map(rollDie);
+  return Promise.race(raceDice);
 }
 
-// Refactor this function to use async/await and try/catch
-function main() {
-  rollDice()
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
+async function main() {
+  try {
+    const results = await rollDice();
+    console.log('Resolved', results);
+  } catch (error) {
+    console.log('Rejected', error.message);
+  }
 }
 
-// ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = rollDice;
+
+// Promise.race() work as its name race it will returns a promise that resolve or rejects
+//  as soon as one of the promises in an array resolve or rejects,
+//  with the value  from that promise.
