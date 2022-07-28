@@ -2,32 +2,20 @@
 
 async function requestData(url) {
   const response = await fetch(url);
-  const data = await response.json();
-
-  return new Promise((resolve, reject) => {
-    if (response.ok) {
-      try {
-        resolve(data);
-      } catch (error) {
-        reject(error.message);
-      }
-    }
-  });
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('HTTP ERROR');
 }
 
 function renderImage(data) {
-  const errorElement = document.getElementsByTagName('h1');
-  errorElement.textContent = '';
   const imageElement = document.createElement('img');
   imageElement.src = data;
-  imageElement.alt = 'comic box';
+  imageElement.alt = data;
   document.body.appendChild(imageElement);
 }
 
 function renderError(error) {
-  const imageElement = document.getElementsByTagName('img');
-  imageElement.src = '';
-
   const errorElement = document.createElement('h1');
   errorElement.textContent = error.message;
   document.body.appendChild(errorElement);

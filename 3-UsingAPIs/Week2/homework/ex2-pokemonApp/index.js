@@ -24,33 +24,35 @@ parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
 async function fetchData(url) {
   const response = await fetch(url);
-  const data = await response.json();
-
-  return new Promise((resolve, reject) => {
-    if (response.ok) {
-      try {
-        resolve(data);
-      } catch (error) {
-        reject(error.message);
-      }
-    }
-  });
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('HTTP ERROR');
 }
 
-function fetchAndPopulatePokemons(name) {
-  const option = document.createElement('option');
-  option.textContent = name;
-  option.classList = 'pokemon-options';
+async function fetchAndPopulatePokemons() {
   const selectOption = document.getElementsByTagName('select')[0];
-  selectOption.appendChild(option);
+
+  const data = await fetchData(`https://pokeapi.co/api/v2/pokemon?limit=151`);
+
+  data.results.forEach((pokemon) => {
+    console.log(pokemon);
+    const option = document.createElement('option');
+    option.textContent = pokemon.name;
+    option.setAttribute('value', pokemon.url);
+    option.classList = 'pokemon-options';
+    selectOption.appendChild(option);
+  });
 }
 
 async function fetchImage(url) {
   try {
     const pokemonData = await fetchData(url);
-    const imagePokemon = document.getElementsByTagName('img')[0];
-    imagePokemon.src = pokemonData.sprites.front_shiny;
-    imagePokemon.alt = 'pokemons';
+    const imagePokemon = document.createElement('img');
+    imagePokemon.setAttribute('src', pokemonData.sprites.front_shiny);
+    imagePokemon.setAttribute('alt', pokemonData.getElementsByTagName);
+    imagePokemon.id = 'pokemon-image';
+    document.body.appendChild(imagePokemon);
   } catch (err) {
     renderError(err);
   }
@@ -64,36 +66,26 @@ function renderError(error) {
 
 async function main() {
   try {
-    const data = await fetchData(`https://pokeapi.co/api/v2/pokemon?limit=151`);
-
     const buttonGetPokemons = document.createElement('button');
     const selectPokemons = document.createElement('select');
-    const imagePokemon = document.createElement('img');
 
-    buttonGetPokemons.id = 'btn';
+    buttonGetPokemons.classList.add('btn');
+    buttonGetPokemons.setAttribute('type', 'submit');
     buttonGetPokemons.textContent = 'Get Pokemons';
     selectPokemons.id = 'select-Pokemons';
-    imagePokemon.id = 'pokemon-image';
 
     document.body.appendChild(buttonGetPokemons);
     document.body.appendChild(selectPokemons);
-    document.body.appendChild(imagePokemon);
 
-    buttonGetPokemons.addEventListener('click', () => {
-      data.results.forEach((pokemon) => {
-        fetchAndPopulatePokemons(pokemon.name);
-      });
+    buttonGetPokemons.addEventListener('click', fetchAndPopulatePokemons());
 
-      selectPokemons.addEventListener('change', (e) => {
-        data.results.forEach((pokemon) => {
-          if (pokemon.name === e.target.value) {
-            fetchImage(pokemon.url);
-          }
-        });
-      });
+    selectPokemons.addEventListener('change', (e) => {
+      console.log(e.target.value);
+      fetchImage(e.target.value);
     });
   } catch (error) {
     renderError(error);
   }
 }
+
 window.addEventListener('load', main);
