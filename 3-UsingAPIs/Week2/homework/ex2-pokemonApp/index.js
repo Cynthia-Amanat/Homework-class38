@@ -31,15 +31,14 @@ async function fetchData(url) {
 }
 
 async function fetchAndPopulatePokemons() {
-  const selectOption = document.getElementsByTagName('select')[0];
+  const selectOption = document.querySelector('select');
+  selectOption.textContent = '';
 
   const data = await fetchData(`https://pokeapi.co/api/v2/pokemon?limit=151`);
-
   data.results.forEach((pokemon) => {
-    console.log(pokemon);
     const option = document.createElement('option');
     option.textContent = pokemon.name;
-    option.setAttribute('value', pokemon.url);
+    option.value = pokemon.url;
     option.classList = 'pokemon-options';
     selectOption.appendChild(option);
   });
@@ -48,11 +47,9 @@ async function fetchAndPopulatePokemons() {
 async function fetchImage(url) {
   try {
     const pokemonData = await fetchData(url);
-    const imagePokemon = document.createElement('img');
+    const imagePokemon = document.getElementById('pokemon-image');
     imagePokemon.setAttribute('src', pokemonData.sprites.front_shiny);
-    imagePokemon.setAttribute('alt', pokemonData.getElementsByTagName);
-    imagePokemon.id = 'pokemon-image';
-    document.body.appendChild(imagePokemon);
+    imagePokemon.setAttribute('alt', pokemonData.name);
   } catch (err) {
     renderError(err);
   }
@@ -68,19 +65,23 @@ async function main() {
   try {
     const buttonGetPokemons = document.createElement('button');
     const selectPokemons = document.createElement('select');
+    const imagePokemon = document.createElement('img');
 
     buttonGetPokemons.classList.add('btn');
     buttonGetPokemons.setAttribute('type', 'submit');
     buttonGetPokemons.textContent = 'Get Pokemons';
     selectPokemons.id = 'select-Pokemons';
+    imagePokemon.id = 'pokemon-image';
+    imagePokemon.src = '/';
+    imagePokemon.alt = '';
 
     document.body.appendChild(buttonGetPokemons);
     document.body.appendChild(selectPokemons);
+    document.body.appendChild(imagePokemon);
 
-    buttonGetPokemons.addEventListener('click', fetchAndPopulatePokemons());
+    buttonGetPokemons.addEventListener('click', fetchAndPopulatePokemons);
 
     selectPokemons.addEventListener('change', (e) => {
-      console.log(e.target.value);
       fetchImage(e.target.value);
     });
   } catch (error) {

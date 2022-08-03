@@ -8,10 +8,10 @@ async function requestData(url) {
   throw new Error('HTTP ERROR');
 }
 
-function renderImage(data) {
+function renderImage(comicRequest) {
   const imageElement = document.createElement('img');
-  imageElement.src = data;
-  imageElement.alt = data;
+  imageElement.src = comicRequest.img;
+  imageElement.alt = comicRequest.alt;
   document.body.appendChild(imageElement);
 }
 
@@ -24,7 +24,7 @@ function renderError(error) {
 async function main() {
   try {
     const comicRequest = await requestData(`https://xkcd.now.sh/?comic=latest`);
-    renderImage(comicRequest.img);
+    renderImage(comicRequest);
   } catch (error) {
     renderError(error);
   }
